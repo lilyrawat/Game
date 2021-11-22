@@ -59,6 +59,6 @@ sysinfo.txt
 crashlytics-build.properties
 .DS_Store
 
-Game Design/UserSettings/EditorUserSettings.asset
-Game Design\ProjectSettings\ProjectVersion.txt
+Game\ Design/UserSettings/EditorUserSettings.asset
+Game\ Design/ProjectSettings/ProjectVersion.txt
 
