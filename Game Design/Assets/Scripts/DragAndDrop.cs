@@ -24,7 +24,7 @@ public class DragAndDrop : MonoBehaviour
          if(Input.GetKey(KeyCode.Backspace)){
             Destroy(gameObject);
             level.items_used--;
-            level.scores=level.scores+10;
+            if(level.items_used>level.min_items) level.scores=level.scores+10;
             Debug.Log(level.scores);
             level.change_items_used.text = level.items_used.ToString();
             level.check_area1();

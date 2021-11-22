@@ -46,6 +46,14 @@ public class Scores : MonoBehaviour
             min_items=4;
             scores=max_scores;
         }
+        else if(SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            area = GameObject.FindGameObjectWithTag("Level").GetComponent<Area>();
+            LevelName.text="LEVEL 4";
+            max_scores= 100;
+            min_items=9;
+            scores=max_scores;
+        }
         
     }
 
