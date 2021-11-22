@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelsOverview : MonoBehaviour
 {
@@ -52,7 +53,7 @@ public class LevelsOverview : MonoBehaviour
           }
       }
     }
-    
+
     void level1(){
         levelProcider(1);
     }
@@ -78,6 +79,7 @@ public class LevelsOverview : MonoBehaviour
         }else{
             // opens clicked level
             print("level available!!!");
+            SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex+clicked);
         }
     }
     // pop up method for locked levels
