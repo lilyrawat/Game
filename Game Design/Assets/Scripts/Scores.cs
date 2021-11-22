@@ -18,8 +18,6 @@ public class Scores : MonoBehaviour
     public int total_cells;
     public int total_cells_covered;
     Area area;
-    float radius=0.025f;
-    int layerMask=1;
 
     void Start()
     {
@@ -29,14 +27,22 @@ public class Scores : MonoBehaviour
             area = GameObject.FindGameObjectWithTag("Level").GetComponent<Area>();
             LevelName.text="LEVEL 1";
             max_scores= 50;
-            min_items=4;
+            min_items=5;
             scores=max_scores;
          }
         else if(SceneManager.GetActiveScene().buildIndex == 2)
         {
             area = GameObject.FindGameObjectWithTag("Level").GetComponent<Area>();
             LevelName.text="LEVEL 2";
-            max_scores= 55;
+            max_scores= 60;
+            min_items=4;
+            scores=max_scores;
+        }
+        else if(SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            area = GameObject.FindGameObjectWithTag("Level").GetComponent<Area>();
+            LevelName.text="LEVEL 3";
+            max_scores= 60;
             min_items=4;
             scores=max_scores;
         }
@@ -54,9 +60,19 @@ public class Scores : MonoBehaviour
         total_cells=area.positions.Count;
         total_cells_covered = 0;
         for(int i=0;i<total_cells;i++){
-            if (Physics2D.OverlapCircle(area.positions[i], radius, layerMask)) total_cells_covered++;
+            Vector2 pointA = new Vector2(area.positions[i].x - 0.13f, area.positions[i].y - 0.13f); 
+            Vector2 pointB = new Vector2(area.positions[i].x + 0.13f, area.positions[i].y + 0.13f);
+            if(Physics2D.OverlapArea(pointA, pointB)) total_cells_covered++;
+            // if (Physics2D.OverlapCircle(area.positions[i], radius, layerMask)) total_cells_covered++;
         }
-        if(total_cells_covered==total_cells) Win();
+        if(total_cells_covered==total_cells) StartCoroutine(ExampleCoroutine());
+    }
+
+    IEnumerator ExampleCoroutine()
+    {
+        Debug.Log("Completed!!");
+        yield return new WaitForSeconds(2);
+        Win();
     }
 
     public void GameOver(){
@@ -67,4 +83,3 @@ public class Scores : MonoBehaviour
         complete.levelComplete(scores);
     }
 }
-

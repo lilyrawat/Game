@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Area : MonoBehaviour
 {
-    public List<Vector3> positions = new List<Vector3>();
+    public List<Vector2> positions = new List<Vector2>();
     void Start()
     {
         var objects = GameObject.FindGameObjectsWithTag("Area");
         foreach (var gameObject in objects) 
         {
-            positions.Add(new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z));
+            positions.Add(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y));
         }
 
     }

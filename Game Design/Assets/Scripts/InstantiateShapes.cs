@@ -24,8 +24,8 @@ public class InstantiateShapes : MonoBehaviour
     void Update()
     {
         if (!Physics2D.OverlapCircle(originalPos, radius, layerMask)) {
-            // Spawn();
-            Debug.Log("Spawn");
+            Spawn();
+            // Debug.Log("Spawn");
         }      
     }
 
