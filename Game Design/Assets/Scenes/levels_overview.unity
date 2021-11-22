@@ -379,11 +379,11 @@ MonoBehaviour:
   currLevelIndicator: {fileID: 5940495958633137280, guid: cd167b8c648571f4aa7d17b1aa112fe2, type: 3}
   popUp: {fileID: 1188675899}
   scores:
-  - {fileID: 1254774432}
-  - {fileID: 1415234660}
-  - {fileID: 1210652230}
-  - {fileID: 1092460091}
-  - {fileID: 946645751}
+  - {fileID: 100522961}
+  - {fileID: 560812119}
+  - {fileID: 375363160}
+  - {fileID: 220780130}
+  - {fileID: 2140768564}
   levels:
   - {fileID: 568647391}
   - {fileID: 982502851}
