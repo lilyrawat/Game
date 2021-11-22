@@ -34,15 +34,15 @@ public class Scores : MonoBehaviour
         {
             area = GameObject.FindGameObjectWithTag("Level").GetComponent<Area>();
             LevelName.text="LEVEL 2";
-            max_scores= 60;
-            min_items=4;
+            max_scores= 50;
+            min_items=3;
             scores=max_scores;
         }
         else if(SceneManager.GetActiveScene().buildIndex == 3)
         {
             area = GameObject.FindGameObjectWithTag("Level").GetComponent<Area>();
             LevelName.text="LEVEL 3";
-            max_scores= 60;
+            max_scores= 50;
             min_items=4;
             scores=max_scores;
         }
@@ -50,7 +50,15 @@ public class Scores : MonoBehaviour
         {
             area = GameObject.FindGameObjectWithTag("Level").GetComponent<Area>();
             LevelName.text="LEVEL 4";
-            max_scores= 100;
+            max_scores= 60;
+            min_items=9;
+            scores=max_scores;
+        }
+        else if(SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            area = GameObject.FindGameObjectWithTag("Level").GetComponent<Area>();
+            LevelName.text="LEVEL 5";
+            max_scores= 60;
             min_items=9;
             scores=max_scores;
         }
