@@ -15,18 +15,12 @@ public class Scores : MonoBehaviour
     private int scores; 
     private int max_scores;
     private int min_items;
-   // User user;
-    // public int total_cells;
-    // public int total_cells_covered;
-    Area area;
+    AreaCovered area;
 
     void Start()
     {
         change_items_used.text = items_used.ToString();
-        area = GameObject.FindGameObjectWithTag("Level").GetComponent<Area>();
-      //  user = GameObject.FindGameObjectWithTag("Player").GetComponent<User>();
-        
-        // print(PlayerPrefs.GetInt("value"));
+        area = GameObject.FindGameObjectWithTag("Player").GetComponent<AreaCovered>();
         if(SceneManager.GetActiveScene().buildIndex == 2)
         {
             LevelName.text="LEVEL 1";
