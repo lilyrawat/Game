@@ -20,13 +20,13 @@ public class LevelsOverview : MonoBehaviour
     public GameObject[] pointer = new GameObject[5];
 
     // script
-    User user;
+   // User user;
     int level;
 
     void Start()
     {
         // accesses the currLevel script
-        user = GameObject.FindGameObjectWithTag("Level").GetComponent<User>();
+       // user = GameObject.FindGameObjectWithTag("Level").GetComponent<User>();
         if(PlayerPrefs.GetInt("level") == 0){
             PlayerPrefs.SetInt("level", 1);
         }

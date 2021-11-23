@@ -15,7 +15,7 @@ public class Scores : MonoBehaviour
     private int scores; 
     private int max_scores;
     private int min_items;
-    User user;
+   // User user;
     // public int total_cells;
     // public int total_cells_covered;
     Area area;
@@ -24,7 +24,7 @@ public class Scores : MonoBehaviour
     {
         change_items_used.text = items_used.ToString();
         area = GameObject.FindGameObjectWithTag("Level").GetComponent<Area>();
-        user = GameObject.FindGameObjectWithTag("Player").GetComponent<User>();
+      //  user = GameObject.FindGameObjectWithTag("Player").GetComponent<User>();
         
         // print(PlayerPrefs.GetInt("value"));
         if(SceneManager.GetActiveScene().buildIndex == 2)
@@ -90,22 +90,19 @@ public class Scores : MonoBehaviour
     }
 
     public void Win(){
-        // if(scores > user.scores[user.level-1]){
-        //     user.scores[user.level-1] = scores;
-        // }
         int currlevel = PlayerPrefs.GetInt("currlevel");
-        if(currlevel == 1){
+        if(currlevel == 1 && PlayerPrefs.GetInt("level1score") < scores){
            PlayerPrefs.SetInt("level1score", scores);
-        }else if(currlevel == 2){
+        }else if(currlevel == 2 && PlayerPrefs.GetInt("level2score") < scores){
            PlayerPrefs.SetInt("level2score", scores);
-        }else if(currlevel == 3){
+        }else if(currlevel == 3 && PlayerPrefs.GetInt("level3score") < scores){
            PlayerPrefs.SetInt("level3score", scores);
-        }else if(currlevel == 4){
+        }else if(currlevel == 4 && PlayerPrefs.GetInt("level4score") < scores){
            PlayerPrefs.SetInt("level4score", scores);
-        }if(currlevel == 5){
+        }if(currlevel == 5 && PlayerPrefs.GetInt("level5score") < scores){
            PlayerPrefs.SetInt("level5score", scores);
         }
-        PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
+        if(PlayerPrefs.GetInt("level") == currlevel) PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
         complete.levelComplete(scores);
     }
 }
