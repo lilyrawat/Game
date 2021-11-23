@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4752025546570087966}
   - component: {fileID: 4752025546570087964}
   - component: {fileID: 4752025546570087965}
-  - component: {fileID: 5464626890880853611}
+  - component: {fileID: 6529198709093146266}
   m_Layer: 0
   m_Name: L-Shape
   m_TagString: Untagged
@@ -110,8 +110,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myPrefab: {fileID: 4752025546570087962}
---- !u!61 &5464626890880853611
-BoxCollider2D:
+--- !u!60 &6529198709093146266
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -133,6 +133,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.4, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.745, y: 0.5}
+      - {x: -0.73240155, y: -0.012204878}
+      - {x: 0.20982331, y: -0.009729385}
+      - {x: 0.21112318, y: -0.14561751}
+      - {x: 0.20879719, y: -0.26178628}
+      - {x: 0.21499999, y: -0.48999998}
+      - {x: 0.715, y: -0.48999998}
+      - {x: 0.715, y: 0.5}

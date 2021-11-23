@@ -12,8 +12,8 @@ public class LevelComplete : MonoBehaviour
         SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex+1);
     }
 
-    public void levelComplete(int score){
+    public void levelComplete(int score, int max_scores){
         gameObject.SetActive(true);
-        pointsText.text = score.ToString()+" POINTS";
+        pointsText.text = "Score: "+score.ToString()+" / "+ max_scores.ToString();
     }
 }

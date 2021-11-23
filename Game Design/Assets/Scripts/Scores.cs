@@ -106,6 +106,6 @@ public class Scores : MonoBehaviour
         if(scores > user.scores[user.level-1]){
             user.scores[user.level-1] = scores;
         }
-        complete.levelComplete(scores);
+        complete.levelComplete(scores,max_scores);
     }
 }
