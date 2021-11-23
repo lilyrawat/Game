@@ -32,6 +32,6 @@ public class InstantiateShapes : MonoBehaviour
         GameObject a = Instantiate(myPrefab, originalPos , Quaternion.identity) as GameObject;
         result.items_used++;
         result.newItemUsedCheck();
-        result.change_items_used.text = level.items_used.ToString();
+        result.change_items_used.text = result.items_used.ToString();
     }
 }
