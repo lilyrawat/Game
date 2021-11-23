@@ -22,7 +22,7 @@ public class Scores : MonoBehaviour
     void Start()
     {
         change_items_used.text = items_used.ToString();
-        if(SceneManager.GetActiveScene().buildIndex == 1)
+        if(SceneManager.GetActiveScene().buildIndex == 2)
         {
             area = GameObject.FindGameObjectWithTag("Level").GetComponent<Area>();
             LevelName.text="LEVEL 1";
@@ -30,7 +30,7 @@ public class Scores : MonoBehaviour
             min_items=5;
             scores=max_scores;
          }
-        else if(SceneManager.GetActiveScene().buildIndex == 2)
+        else if(SceneManager.GetActiveScene().buildIndex == 3)
         {
             area = GameObject.FindGameObjectWithTag("Level").GetComponent<Area>();
             LevelName.text="LEVEL 2";
@@ -38,7 +38,7 @@ public class Scores : MonoBehaviour
             min_items=3;
             scores=max_scores;
         }
-        else if(SceneManager.GetActiveScene().buildIndex == 3)
+        else if(SceneManager.GetActiveScene().buildIndex == 4)
         {
             area = GameObject.FindGameObjectWithTag("Level").GetComponent<Area>();
             LevelName.text="LEVEL 3";
@@ -46,7 +46,7 @@ public class Scores : MonoBehaviour
             min_items=4;
             scores=max_scores;
         }
-        else if(SceneManager.GetActiveScene().buildIndex == 4)
+        else if(SceneManager.GetActiveScene().buildIndex == 5)
         {
             area = GameObject.FindGameObjectWithTag("Level").GetComponent<Area>();
             LevelName.text="LEVEL 4";
@@ -54,7 +54,7 @@ public class Scores : MonoBehaviour
             min_items=9;
             scores=max_scores;
         }
-        else if(SceneManager.GetActiveScene().buildIndex == 5)
+        else if(SceneManager.GetActiveScene().buildIndex == 6)
         {
             area = GameObject.FindGameObjectWithTag("Level").GetComponent<Area>();
             LevelName.text="LEVEL 5";
