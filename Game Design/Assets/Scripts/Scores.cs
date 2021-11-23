@@ -15,68 +15,49 @@ public class Scores : MonoBehaviour
     private int scores; 
     private int max_scores;
     private int min_items;
-    User user;
-    // public int total_cells;
-    // public int total_cells_covered;
-    Area area;
+    AreaCovered area;
 
     void Start()
     {
         change_items_used.text = items_used.ToString();
-        area = GameObject.FindGameObjectWithTag("Level").GetComponent<Area>();
-        user = GameObject.FindGameObjectWithTag("Player").GetComponent<User>();
-
+        area = GameObject.FindGameObjectWithTag("Player").GetComponent<AreaCovered>();
         if(SceneManager.GetActiveScene().buildIndex == 2)
         {
             LevelName.text="LEVEL 1";
+            PlayerPrefs.SetInt("currlevel", 1);
             max_scores= 50;
             min_items=5;
          }
         else if(SceneManager.GetActiveScene().buildIndex == 3)
         {
             LevelName.text="LEVEL 2";
+            PlayerPrefs.SetInt("currlevel", 2);
             max_scores= 50;
             min_items=3;
         }
         else if(SceneManager.GetActiveScene().buildIndex == 4)
         {
             LevelName.text="LEVEL 3";
+            PlayerPrefs.SetInt("currlevel", 3);
             max_scores= 50;
             min_items=4;
         }
         else if(SceneManager.GetActiveScene().buildIndex == 5)
         {
             LevelName.text="LEVEL 4";
+            PlayerPrefs.SetInt("currlevel", 4);
             max_scores= 60;
             min_items=9;
         }
         else if(SceneManager.GetActiveScene().buildIndex == 6)
         {
             LevelName.text="LEVEL 5";
+            PlayerPrefs.SetInt("currlevel", 5);
             max_scores= 60;
             min_items=9;
         }
         scores = max_scores;
     }
-
-    // void Update()
-    // {
-    //     if(scores<=0){
-    //         GameOver();
-    //     }
-    // }
-
-//    public void check_area1(){
-//         total_cells=area.positions.Count;
-//         total_cells_covered = 0;
-//         for(int i=0;i<total_cells;i++){
-//             Vector2 pointA = new Vector2(area.positions[i].x - 0.13f, area.positions[i].y - 0.13f); 
-//             Vector2 pointB = new Vector2(area.positions[i].x + 0.13f, area.positions[i].y + 0.13f);
-//             if(Physics2D.OverlapArea(pointA, pointB)) total_cells_covered++;
-//             // if (Physics2D.OverlapCircle(area.positions[i], radius, layerMask)) total_cells_covered++;
-//         }
-//         if(total_cells_covered==total_cells) StartCoroutine(ExampleCoroutine());
-//     }
 
 
 
@@ -103,9 +84,19 @@ public class Scores : MonoBehaviour
     }
 
     public void Win(){
-        if(scores > user.scores[user.level-1]){
-            user.scores[user.level-1] = scores;
+        int currlevel = PlayerPrefs.GetInt("currlevel");
+        if(currlevel == 1 && PlayerPrefs.GetInt("level1score") < scores){
+           PlayerPrefs.SetInt("level1score", scores);
+        }else if(currlevel == 2 && PlayerPrefs.GetInt("level2score") < scores){
+           PlayerPrefs.SetInt("level2score", scores);
+        }else if(currlevel == 3 && PlayerPrefs.GetInt("level3score") < scores){
+           PlayerPrefs.SetInt("level3score", scores);
+        }else if(currlevel == 4 && PlayerPrefs.GetInt("level4score") < scores){
+           PlayerPrefs.SetInt("level4score", scores);
+        }if(currlevel == 5 && PlayerPrefs.GetInt("level5score") < scores){
+           PlayerPrefs.SetInt("level5score", scores);
         }
+        if(PlayerPrefs.GetInt("level") == currlevel) PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
         complete.levelComplete(scores,max_scores);
     }
 }

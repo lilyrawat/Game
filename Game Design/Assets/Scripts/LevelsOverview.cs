@@ -20,15 +20,19 @@ public class LevelsOverview : MonoBehaviour
     public GameObject[] pointer = new GameObject[5];
 
     // script
-    User user;
+   // User user;
+    int level;
 
     void Start()
     {
         // accesses the currLevel script
-        user = GameObject.FindGameObjectWithTag("Level").GetComponent<User>();
-      
+       // user = GameObject.FindGameObjectWithTag("Level").GetComponent<User>();
+        if(PlayerPrefs.GetInt("level") == 0){
+            PlayerPrefs.SetInt("level", 1);
+        }
+        level = PlayerPrefs.GetInt("level");
         //shows pointer on current level
-        pointer[user.level-1].SetActive(true);
+        pointer[level-1].SetActive(true);
       
         Button btn1 = levels[0].GetComponent<Button>(); 
         Button btn2 = levels[1].GetComponent<Button>(); 
@@ -42,11 +46,16 @@ public class LevelsOverview : MonoBehaviour
         btn4.onClick.AddListener( level4 );
         btn5.onClick.AddListener( level5 );
         
-        for(int i=0;i<5;i++){
-          if(user.scores[i] != 0){
-              scores[i].text= "Score: " + user.scores[i].ToString();
-          }
-        }
+        // for(int i=0;i<5;i++){
+        //   if(user.scores[i] != 0){
+        //       scores[i].text= "Score: " + user.scores[i].ToString();
+        //   }
+        // }
+        scores[0].text = "Score: " + PlayerPrefs.GetInt("level1score");
+        scores[1].text = "Score: " + PlayerPrefs.GetInt("level2score");
+        scores[2].text = "Score: " + PlayerPrefs.GetInt("level3score");
+        scores[3].text = "Score: " + PlayerPrefs.GetInt("level4score");
+        scores[4].text = "Score: " + PlayerPrefs.GetInt("level5score");
     }
 
     void level1(){
@@ -67,7 +76,7 @@ public class LevelsOverview : MonoBehaviour
 
     
     void levelProcider(int clicked){
-        if(user.level < clicked){
+        if(level < clicked){
             print("level is locked!!!");
             //shows popup of locked levels
             StartCoroutine(popup());
