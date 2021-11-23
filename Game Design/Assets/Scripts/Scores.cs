@@ -26,41 +26,41 @@ public class Scores : MonoBehaviour
             LevelName.text="LEVEL 1";
             PlayerPrefs.SetInt("currlevel", 1);
             max_scores= 50;
-            min_items=5;
+            min_items=4;
          }
         else if(SceneManager.GetActiveScene().buildIndex == 3)
         {
             LevelName.text="LEVEL 2";
             PlayerPrefs.SetInt("currlevel", 2);
-            max_scores= 50;
+            max_scores= 60;
             min_items=3;
         }
         else if(SceneManager.GetActiveScene().buildIndex == 4)
         {
             LevelName.text="LEVEL 3";
             PlayerPrefs.SetInt("currlevel", 3);
-            max_scores= 50;
+            max_scores= 70;
             min_items=4;
         }
         else if(SceneManager.GetActiveScene().buildIndex == 5)
         {
             LevelName.text="LEVEL 4";
             PlayerPrefs.SetInt("currlevel", 4);
-            max_scores= 60;
-            min_items=9;
+            max_scores= 80;
+            min_items=6;
         }
         else if(SceneManager.GetActiveScene().buildIndex == 6)
         {
             LevelName.text="LEVEL 5";
             PlayerPrefs.SetInt("currlevel", 5);
-            max_scores= 60;
-            min_items=9;
+            max_scores= 100;
+            min_items=5;
         }
         scores = max_scores;
     }
 
 
-
+    // for updating scores for every extra item used
     public void newItemUsedCheck(){
         if(items_used > min_items) {
             scores=max_scores - 10*(items_used - min_items);
@@ -68,6 +68,7 @@ public class Scores : MonoBehaviour
         if(scores<=0) GameOver();
     }
 
+    // calling the area check method of areacovered file
     public void areaCoveredCheck(){
         if(area.check_area()) StartCoroutine(ExampleCoroutine());
     }
@@ -79,12 +80,16 @@ public class Scores : MonoBehaviour
         Win();
     }
 
+    // for showing gameover setup
     public void GameOver(){
         gameover.Setup();
     }
 
     public void Win(){
+        // current level
         int currlevel = PlayerPrefs.GetInt("currlevel");
+
+        // assigning level scores to the user
         if(currlevel == 1 && PlayerPrefs.GetInt("level1score") < scores){
            PlayerPrefs.SetInt("level1score", scores);
         }else if(currlevel == 2 && PlayerPrefs.GetInt("level2score") < scores){
@@ -96,7 +101,14 @@ public class Scores : MonoBehaviour
         }if(currlevel == 5 && PlayerPrefs.GetInt("level5score") < scores){
            PlayerPrefs.SetInt("level5score", scores);
         }
+        // incrementing the level
         if(PlayerPrefs.GetInt("level") == currlevel) PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
+<<<<<<< Updated upstream
         complete.levelComplete(scores,max_scores);
+=======
+
+        // showing level complete screen 
+        complete.levelComplete(scores);
+>>>>>>> Stashed changes
     }
 }

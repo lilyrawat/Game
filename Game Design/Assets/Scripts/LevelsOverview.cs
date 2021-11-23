@@ -25,39 +25,47 @@ public class LevelsOverview : MonoBehaviour
 
     void Start()
     {
-        // accesses the currLevel script
-       // user = GameObject.FindGameObjectWithTag("Level").GetComponent<User>();
+        
         if(PlayerPrefs.GetInt("level") == 0){
             PlayerPrefs.SetInt("level", 1);
         }
         level = PlayerPrefs.GetInt("level");
+
         //shows pointer on current level
         pointer[level-1].SetActive(true);
       
+        // buttons
         Button btn1 = levels[0].GetComponent<Button>(); 
         Button btn2 = levels[1].GetComponent<Button>(); 
         Button btn3 = levels[2].GetComponent<Button>(); 
         Button btn4 = levels[3].GetComponent<Button>(); 
         Button btn5 = levels[4].GetComponent<Button>(); 
 
+        // button event listeners 
         btn1.onClick.AddListener( level1 );
         btn2.onClick.AddListener( level2 );
         btn3.onClick.AddListener( level3 );
         btn4.onClick.AddListener( level4 );
         btn5.onClick.AddListener( level5 );
         
-        // for(int i=0;i<5;i++){
-        //   if(user.scores[i] != 0){
-        //       scores[i].text= "Score: " + user.scores[i].ToString();
-        //   }
-        // }
-        scores[0].text = "Score: " + PlayerPrefs.GetInt("level1score");
-        scores[1].text = "Score: " + PlayerPrefs.GetInt("level2score");
-        scores[2].text = "Score: " + PlayerPrefs.GetInt("level3score");
-        scores[3].text = "Score: " + PlayerPrefs.GetInt("level4score");
-        scores[4].text = "Score: " + PlayerPrefs.GetInt("level5score");
+        // level scores
+        if(PlayerPrefs.GetInt("level1score") == 0) scores[0].text = "Not available";
+        else scores[0].text = "Score: " + PlayerPrefs.GetInt("level1score");
+        
+        if(PlayerPrefs.GetInt("level2score") == 0) scores[1].text = "Not available";
+        else scores[1].text = "Score: " + PlayerPrefs.GetInt("level2score");
+
+        if(PlayerPrefs.GetInt("level3score") == 0) scores[2].text = "Not available";
+        else scores[2].text = "Score: " + PlayerPrefs.GetInt("level3score");
+
+        if(PlayerPrefs.GetInt("level4score") == 0) scores[3].text = "Not available";
+        else scores[3].text = "Score: " + PlayerPrefs.GetInt("level4score");
+
+        if(PlayerPrefs.GetInt("level5score") == 0) scores[4].text = "Not available";
+        else scores[4].text = "Score: " + PlayerPrefs.GetInt("level5score");
     }
 
+    // methods associated with buttons
     void level1(){
         levelProcider(1);
     }
@@ -74,7 +82,7 @@ public class LevelsOverview : MonoBehaviour
         levelProcider(5);
     }
 
-    
+    // opens the level scene
     void levelProcider(int clicked){
         if(level < clicked){
             print("level is locked!!!");

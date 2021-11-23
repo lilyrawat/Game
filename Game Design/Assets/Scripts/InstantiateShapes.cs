@@ -9,31 +9,29 @@ public class InstantiateShapes : MonoBehaviour
     Vector3 originalPos;
     float radius;
     int layerMask;
-    Scores level;
-
-    //  public GameObject items;
+    Scores result;
     
     void Start()
     {
         originalPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
         radius = 0.5f;
         layerMask=1;
-        level = GameObject.FindGameObjectWithTag("Player").GetComponent<Scores>();
+        result = GameObject.FindGameObjectWithTag("Player").GetComponent<Scores>();
     }
 
     void Update()
     {
         if (!Physics2D.OverlapCircle(originalPos, radius, layerMask)) {
             Spawn();
-            // Debug.Log("Spawn");
-            level.areaCoveredCheck();
+            result.areaCoveredCheck();
         }      
     }
 
+    // for instantiating prefabs
     private void Spawn(){
         GameObject a = Instantiate(myPrefab, originalPos , Quaternion.identity) as GameObject;
-        level.items_used++;
-        level.newItemUsedCheck();
-        level.change_items_used.text = level.items_used.ToString();
+        result.items_used++;
+        result.newItemUsedCheck();
+        result.change_items_used.text = level.items_used.ToString();
     }
 }

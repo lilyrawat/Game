@@ -29,8 +29,12 @@ public class AreaCovered : MonoBehaviour
             Vector2 pointB = new Vector2(positions[i].x + 0.125f, positions[i].y + 0.125f);
             if(Physics2D.OverlapArea(pointA, pointB)) total_cells_covered++;
         }
+<<<<<<< Updated upstream
         //Checking if all the points are covered. 
         if(total_cells_covered==total_cells) return true;
+=======
+        if(total_cells_covered==total_cells) return true; 
+>>>>>>> Stashed changes
         else return false;
     }
 
