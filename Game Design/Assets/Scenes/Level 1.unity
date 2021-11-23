@@ -2562,6 +2562,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positions: []
+  total_cells: 0
+  total_cells_covered: 0
 --- !u!212 &153653197
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -23234,6 +23236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1771218825}
   - component: {fileID: 1771218824}
+  - component: {fileID: 1771218826}
   m_Layer: 0
   m_Name: Result
   m_TagString: Player
@@ -23258,11 +23261,6 @@ MonoBehaviour:
   change_items_used: {fileID: 1603128697}
   LevelName: {fileID: 1426120064}
   items_used: 0
-  scores: 0
-  max_scores: 0
-  min_items: 0
-  total_cells: 0
-  total_cells_covered: 0
 --- !u!4 &1771218825
 Transform:
   m_ObjectHideFlags: 0
@@ -23277,6 +23275,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1771218826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771218823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1973d7861be604dae8e8eb1c2e1b0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1
+  scores: 0000000000000000000000000000000000000000
 --- !u!1 &1778853451
 GameObject:
   m_ObjectHideFlags: 0

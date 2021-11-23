@@ -20,15 +20,15 @@ public class LevelsOverview : MonoBehaviour
     public GameObject[] pointer = new GameObject[5];
 
     // script
-    CurrLevel main;
+    User user;
 
     void Start()
     {
         // accesses the currLevel script
-        main = GameObject.FindGameObjectWithTag("Level").GetComponent<CurrLevel>();
+        user = GameObject.FindGameObjectWithTag("Level").GetComponent<User>();
       
         //shows pointer on current level
-        pointer[main.level-1].SetActive(true);
+        pointer[user.level-1].SetActive(true);
       
         Button btn1 = levels[0].GetComponent<Button>(); 
         Button btn2 = levels[1].GetComponent<Button>(); 
@@ -42,16 +42,11 @@ public class LevelsOverview : MonoBehaviour
         btn4.onClick.AddListener( level4 );
         btn5.onClick.AddListener( level5 );
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    { 
         for(int i=0;i<5;i++){
-          if(main.scores[i] != 0){
-              scores[i].text= "Score: " + main.scores[i].ToString();
+          if(user.scores[i] != 0){
+              scores[i].text= "Score: " + user.scores[i].ToString();
           }
-      }
+        }
     }
 
     void level1(){
@@ -72,7 +67,7 @@ public class LevelsOverview : MonoBehaviour
 
     
     void levelProcider(int clicked){
-        if(main.level < clicked){
+        if(user.level < clicked){
             print("level is locked!!!");
             //shows popup of locked levels
             StartCoroutine(popup());

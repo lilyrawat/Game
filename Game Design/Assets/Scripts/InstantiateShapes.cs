@@ -26,16 +26,14 @@ public class InstantiateShapes : MonoBehaviour
         if (!Physics2D.OverlapCircle(originalPos, radius, layerMask)) {
             Spawn();
             // Debug.Log("Spawn");
+            level.areaCoveredCheck();
         }      
     }
 
     private void Spawn(){
         GameObject a = Instantiate(myPrefab, originalPos , Quaternion.identity) as GameObject;
         level.items_used++;
-
-        if(level.items_used>level.min_items) level.scores=level.max_scores-(level.items_used-level.min_items)*10;
-        
-        Debug.Log(level.scores);
+        level.newItemUsedCheck();
         level.change_items_used.text = level.items_used.ToString();
     }
 }
