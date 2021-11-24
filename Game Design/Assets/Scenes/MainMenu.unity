@@ -1019,7 +1019,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BRIDGE
+  m_Text: BRIDGEPUZ
 --- !u!222 &409952402
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3104,7 +3104,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BRIDGE
+  m_Text: BRIDGEPUZ
 --- !u!222 &1691055330
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3380,7 +3380,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BRIDGE
+  m_Text: BRIDGEPUZ
 --- !u!222 &2087558421
 CanvasRenderer:
   m_ObjectHideFlags: 0

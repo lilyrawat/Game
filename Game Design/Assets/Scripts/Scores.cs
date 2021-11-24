@@ -21,35 +21,35 @@ public class Scores : MonoBehaviour
     {
         change_items_used.text = items_used.ToString();
         area = GameObject.FindGameObjectWithTag("Player").GetComponent<AreaCovered>();
-        if(SceneManager.GetActiveScene().buildIndex == 2)
+        if(SceneManager.GetActiveScene().buildIndex == 3)
         {
             LevelName.text="LEVEL 1";
             PlayerPrefs.SetInt("currlevel", 1);
             max_scores= 50;
             min_items=4;
          }
-        else if(SceneManager.GetActiveScene().buildIndex == 3)
+        else if(SceneManager.GetActiveScene().buildIndex == 4)
         {
             LevelName.text="LEVEL 2";
             PlayerPrefs.SetInt("currlevel", 2);
             max_scores= 60;
             min_items=3;
         }
-        else if(SceneManager.GetActiveScene().buildIndex == 4)
+        else if(SceneManager.GetActiveScene().buildIndex == 5)
         {
             LevelName.text="LEVEL 3";
             PlayerPrefs.SetInt("currlevel", 3);
             max_scores= 70;
             min_items=4;
         }
-        else if(SceneManager.GetActiveScene().buildIndex == 5)
+        else if(SceneManager.GetActiveScene().buildIndex == 6)
         {
             LevelName.text="LEVEL 4";
             PlayerPrefs.SetInt("currlevel", 4);
             max_scores= 80;
             min_items=6;
         }
-        else if(SceneManager.GetActiveScene().buildIndex == 6)
+        else if(SceneManager.GetActiveScene().buildIndex == 7)
         {
             LevelName.text="LEVEL 5";
             PlayerPrefs.SetInt("currlevel", 5);
