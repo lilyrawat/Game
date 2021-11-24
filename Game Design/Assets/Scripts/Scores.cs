@@ -102,7 +102,7 @@ public class Scores : MonoBehaviour
            PlayerPrefs.SetInt("level5score", scores);
         }
         // incrementing the level
-        if(PlayerPrefs.GetInt("level") == currlevel) PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
+        if(PlayerPrefs.GetInt("level") == currlevel && currlevel!=5) PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
         complete.levelComplete(scores,max_scores);
         // showing level complete screen 
     }
