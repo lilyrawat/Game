@@ -26,9 +26,7 @@ public class LevelsOverview : MonoBehaviour
     void Start()
     {
         
-        if(PlayerPrefs.GetInt("level") == 0){
-            PlayerPrefs.SetInt("level", 1);
-        }
+      
         level = PlayerPrefs.GetInt("level");
 
         //shows pointer on current level
